@@ -1,10 +1,15 @@
 # Importowanie modułu i wywołanie konstruktora
 import turtle
+import random
+import secrets
 
 t = turtle.Turtle()
 
 # Ustawianie prędkości poruszania się znacznika
 t.speed("fastest")
+
+# Generating a random number in between 0 and 2^24
+
 
 
 # Definicja funkcji tworzącej fragment fraktala
@@ -108,114 +113,36 @@ class Fractals:
         t.forward(x)
         t.left(120)
 
+    def colors(self):
+        std_color = "#" + secrets.token_hex(3)
+        t.color(std_color, std_color)
     def squareBOSS(self, x):
         if x <= 8:
             return
 
-        # pierwszy kwadrat
-        self.squareBOSS(x / 3)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
 
-        t.forward(x)
-        # drugi kwadrat
-        self.squareBOSS(x / 3)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-
-        t.forward(x)
-        t.forward(x)
-        t.left(90)
-        # trzeci kwadrat
-        self.squareBOSS(x / 3)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-
-        t.forward(x)
-        # czwarty kwadrat
-        self.squareBOSS(x / 3)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-
-        t.forward(x)
-        t.forward(x)
-        t.left(90)
-        # piąty kwadrat
-        self.squareBOSS(x / 3)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-
-        t.forward(x)
-        # szósty kwadrat
-        self.squareBOSS(x / 3)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-
-        t.forward(x)
-        t.forward(x)
-        t.left(90)
-        # siódmy kwadrat
-        self.squareBOSS(x / 3)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-
-        t.forward(x)
-        # ósmy kwadrat
-        self.squareBOSS(x / 3)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-        t.forward(x)
-        t.left(90)
-
-        t.forward(x)
-        t.forward(x)
-        t.left(90)
+        for i in range(8):
+            # pierwszy kwadrat
+            self.colors()
+            self.squareBOSS(x / 3)
+            self.colors()
+            t.forward(x)
+            t.left(90)
+            self.colors()
+            t.forward(x)
+            t.left(90)
+            self.colors()
+            t.forward(x)
+            t.left(90)
+            self.colors()
+            t.forward(x)
+            t.left(90)
+            if i % 2 == 0:
+                t.forward(x)
+            else:
+                t.forward(x)
+                t.forward(x)
+                t.left(90)
 
 
 # Wywołanie funkcji frac_widly
@@ -226,5 +153,5 @@ frac.squareBOSS(x)
 # frac_widly(x)
 #frac.twig(x)
 # triangle(x)
-input("czekaj")
+turtle.onclick(None)
 
